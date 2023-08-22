@@ -170,12 +170,55 @@ background-size: .65em auto, 100%;
     font-weight: 100;
 }
 .burger-menu{
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0%;
+    background-color: #fff;
+    width: 100%;
+    padding: 3em;
+    text-align: center;
+    /* z-index: 1; */
+    top: -80%;
+    transition: all 0.5s ease-in;
+}
+.burger-menu li{
+    list-style-type: none;
+}
+.burger-menu li a {
+    text-decoration: none;
+    color: gray;
+    font-size: 22px;
 }
 
+.burger-menu li a:hover {
+    color:#7680da;
+    transition: all ease 1s;
+}
+.burger-menu li{
+    position: relative;
+    margin: 7px;
+}
+.burger-menu li a:after{
+position: absolute;
+  content: "";
+  width: 1px;
+  height: 2px;
+  bottom: 0;
+  background: #7680da;
+  right:43%;
+  visibility: hidden;
+  /* transition: all ease 0.1s; */
+}
+.burger-menu li a:hover::after{
+    visibility: visible;
+    width: 2em;
+    transition: all ease 1s;
+}
 #checkbox_menu{ 
     appearance: none;
 }
+
 .menu_btn{
     display: flex;
     position: relative;
@@ -188,7 +231,8 @@ background-size: .65em auto, 100%;
     background-color: #7680da;
     position: absolute;
     right: 1em;
-    top: 0.2em;
+    top: 0;
+    transition: all ease 0.2s;
 }
 .menu_btn .burger-span::before{
     content: '';
@@ -197,6 +241,7 @@ background-size: .65em auto, 100%;
     top: 9px;
     background-color: #7680da;
     position: absolute;
+    transition: all ease 0.2s;
 }
 
 .menu_btn .burger-span::after{
@@ -206,8 +251,25 @@ background-size: .65em auto, 100%;
     top: 18px;
     background-color: #7680da;
     position: absolute;
+    transition: all ease 0.2s;
 }
-
+#checkbox_menu:checked~.menu_btn>span{
+    transform: rotate(45deg);
+    transition: all ease 0.2s;
+}
+#checkbox_menu:checked~.menu_btn>span:before{
+    transform: rotate(90deg);
+    top:0;
+    transition: all ease 0.2s;
+}
+#checkbox_menu:checked~.menu_btn>span::after{
+    display: none;
+    transition: all ease 0.2s;
+}
+#checkbox_menu:checked~.burger-menu{
+    display: flex;
+    top: 5em;
+}
 
 .classes_cards{
     display: flex;
@@ -484,6 +546,11 @@ a.carousel-control-next, a.carousel-control-prev {
     font-weight: 600;
     border-radius: 16px;
 }
+.price_btn:active{
+    background-color: gray;
+    box-shadow: 1px 3px 6px 2px rgba(0, 0, 0, 0.3);
+}
+
 .footer_disc_about{
     background-color: #7680da;
     color: #fff;
